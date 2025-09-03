@@ -36,14 +36,18 @@ export const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in">
-            <Button size="lg" variant="hero" className="min-w-[200px]">
-              <MessageSquare className="h-5 w-5 mr-2" />
-              Start AI Chat
-            </Button>
-            <Button size="lg" variant="wellness" className="min-w-[200px]">
-              <Users className="h-5 w-5 mr-2" />
-              Join Peer Support
-            </Button>
+            <a href="/ai-chat">
+              <Button size="lg" variant="hero" className="min-w-[200px]">
+                <MessageSquare className="h-5 w-5 mr-2" />
+                Start AI Chat
+              </Button>
+            </a>
+            <a href="/peer-support">
+              <Button size="lg" variant="wellness" className="min-w-[200px]">
+                <Users className="h-5 w-5 mr-2" />
+                Join Peer Support
+              </Button>
+            </a>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">

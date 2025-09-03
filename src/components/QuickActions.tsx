@@ -32,9 +32,11 @@ export const QuickActions = () => {
               <p className="text-white/80 text-sm mb-4">
                 Instant support available 24/7
               </p>
-              <Button variant="secondary" size="sm" className="w-full">
-                Start Chat <ArrowRight className="h-4 w-4 ml-2" />
-              </Button>
+              <a href="/ai-chat">
+                <Button variant="secondary" size="sm" className="w-full">
+                  Start Chat <ArrowRight className="h-4 w-4 ml-2" />
+                </Button>
+              </a>
             </CardContent>
           </Card>
           
@@ -62,9 +64,11 @@ export const QuickActions = () => {
               <p className="text-white/80 text-sm mb-4">
                 Schedule with campus experts
               </p>
-              <Button variant="secondary" size="sm" className="w-full">
-                Book Now <ArrowRight className="h-4 w-4 ml-2" />
-              </Button>
+              <a href="/booking">
+                <Button variant="secondary" size="sm" className="w-full">
+                  Book Now <ArrowRight className="h-4 w-4 ml-2" />
+                </Button>
+              </a>
             </CardContent>
           </Card>
           
@@ -77,9 +81,11 @@ export const QuickActions = () => {
               <p className="text-white/80 text-sm mb-4">
                 Guided exercises and resources
               </p>
-              <Button variant="secondary" size="sm" className="w-full">
-                Explore <ArrowRight className="h-4 w-4 ml-2" />
-              </Button>
+              <a href="/resources">
+                <Button variant="secondary" size="sm" className="w-full">
+                  Explore <ArrowRight className="h-4 w-4 ml-2" />
+                </Button>
+              </a>
             </CardContent>
           </Card>
         </div>

@@ -13,11 +13,11 @@ export const Header = () => {
         </div>
         
         <nav className="hidden md:flex items-center space-x-6">
-          <a href="#chat" className="text-muted-foreground hover:text-primary transition-colors">AI Support</a>
-          <a href="#resources" className="text-muted-foreground hover:text-primary transition-colors">Resources</a>
-          <a href="#peer-support" className="text-muted-foreground hover:text-primary transition-colors">Peer Support</a>
-          <a href="#games" className="text-muted-foreground hover:text-primary transition-colors">Mind Games</a>
-          <a href="#calendar" className="text-muted-foreground hover:text-primary transition-colors">Calendar</a>
+          <a href="/ai-chat" className="text-muted-foreground hover:text-primary transition-colors">AI Support</a>
+          <a href="/resources" className="text-muted-foreground hover:text-primary transition-colors">Resources</a>
+          <a href="/peer-support" className="text-muted-foreground hover:text-primary transition-colors">Peer Support</a>
+          <a href="/games" className="text-muted-foreground hover:text-primary transition-colors">Mind Games</a>
+          <a href="/booking" className="text-muted-foreground hover:text-primary transition-colors">Book Counselor</a>
         </nav>
         
         <div className="flex items-center space-x-2">
