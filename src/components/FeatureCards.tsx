@@ -15,6 +15,9 @@ import {
 import aiSupportImage from "@/assets/ai-support.jpg";
 import peerSupportImage from "@/assets/peer-support.jpg";
 import resourcesImage from "@/assets/resources.jpg";
+import wellnessMeditation from "@/assets/wellness-meditation.jpg";
+import counselingSession from "@/assets/counseling-session.jpg";
+import brainGames from "@/assets/brain-games.jpg";
 
 const features = [
   {
@@ -31,6 +34,7 @@ const features = [
     title: "Confidential Booking",
     description: "Schedule appointments with campus counselors and mental health professionals",
     icon: Calendar,
+    image: counselingSession,
     color: "calm",
     gradient: "gradient-calm"
   },
@@ -57,6 +61,7 @@ const features = [
     title: "Mind Refresher Games",
     description: "Engaging puzzles and games designed to reduce stress and improve focus",
     icon: GamepadIcon,
+    image: brainGames,
     color: "therapy",
     gradient: "gradient-wellness"
   },
@@ -73,6 +78,7 @@ const features = [
     title: "Self Assessment",
     description: "Evidence-based psychological screening tools (PHQ-9, GAD-7, GHQ)",
     icon: ClipboardList,
+    image: wellnessMeditation,
     color: "wellness",
     gradient: "gradient-wellness"
   },
@@ -156,6 +162,19 @@ export const FeatureCards = () => {
                     variant="outline" 
                     size="sm" 
                     className="w-full group-hover:border-primary group-hover:text-primary transition-colors"
+                    onClick={() => {
+                      const routes = {
+                        'ai-chat': '/ai-chat',
+                        'booking': '/booking',
+                        'resources': '/resources',
+                        'peer-support': '/peer-support',
+                        'games': '/games'
+                      };
+                      const route = routes[feature.id as keyof typeof routes];
+                      if (route) {
+                        window.location.href = route;
+                      }
+                    }}
                   >
                     Learn More
                   </Button>

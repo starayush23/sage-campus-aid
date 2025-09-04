@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { FeatureCards } from "@/components/FeatureCards";
 import { QuickActions } from "@/components/QuickActions";
 import { Footer } from "@/components/Footer";
+import { SOSButton } from "@/components/SOSButton";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
         <QuickActions />
       </main>
       <Footer />
+      <SOSButton />
     </div>
   );
 };

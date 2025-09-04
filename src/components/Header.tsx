@@ -1,5 +1,24 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { MessageSquare, Heart, Calendar, User } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { MessageSquare, Heart, User } from "lucide-react";
+import { AuthSystem } from "./AuthSystem";
+
+const AuthButton = () => {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="hero">
+          <User className="h-4 w-4 mr-2" />
+          Sign In
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-md">
+        <AuthSystem />
+      </DialogContent>
+    </Dialog>
+  );
+};
 
 export const Header = () => {
   return (
@@ -21,13 +40,10 @@ export const Header = () => {
         </nav>
         
         <div className="flex items-center space-x-2">
-          <Button variant="ghost" size="icon">
+          <Button variant="ghost" size="icon" onClick={() => window.location.href = '/ai-chat'}>
             <MessageSquare className="h-5 w-5" />
           </Button>
-          <Button variant="hero">
-            <User className="h-4 w-4 mr-2" />
-            Sign In
-          </Button>
+          <AuthButton />
         </div>
       </div>
     </header>
