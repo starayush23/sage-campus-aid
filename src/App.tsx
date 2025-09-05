@@ -10,6 +10,7 @@ import { BookingSystem } from "./components/BookingSystem";
 import { ResourceHub } from "./components/ResourceHub";
 import { PeerSupport } from "./components/PeerSupport";
 import { MindGames } from "./components/MindGames";
+import { RewardsSystem } from "./components/RewardsSystem";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/resources" element={<ResourceHub />} />
           <Route path="/peer-support" element={<PeerSupport />} />
           <Route path="/games" element={<MindGames />} />
+          <Route path="/rewards" element={<RewardsSystem />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GamepadIcon, Brain, Puzzle, Target, ArrowLeft, Play, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
+import { MemoryGame } from "./games/MemoryGame";
+import { BreathingGame } from "./games/BreathingGame";
 
 const games = [
   {
@@ -72,15 +74,30 @@ export const MindGames = () => {
               <CardTitle className="text-2xl">{game?.title}</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <div className="mb-8 p-8 bg-muted/50 rounded-xl">
-                <p className="text-muted-foreground mb-4">Game will load here</p>
-                <div className="w-full h-64 bg-muted rounded-lg flex items-center justify-center">
-                  <Play className="h-16 w-16 text-muted-foreground" />
-                </div>
+              <div className="mb-8">
+                {selectedGame === 1 && <MemoryGame />}
+                {selectedGame === 2 && <BreathingGame />}
+                {selectedGame === 3 && (
+                  <Card>
+                    <CardContent className="p-8 text-center">
+                      <p className="text-muted-foreground mb-4">Word Association Game Coming Soon!</p>
+                      <div className="w-full h-64 bg-muted rounded-lg flex items-center justify-center">
+                        <Puzzle className="h-16 w-16 text-muted-foreground" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+                {selectedGame === 4 && (
+                  <Card>
+                    <CardContent className="p-8 text-center">
+                      <p className="text-muted-foreground mb-4">Mindful Maze Coming Soon!</p>
+                      <div className="w-full h-64 bg-muted rounded-lg flex items-center justify-center">
+                        <GamepadIcon className="h-16 w-16 text-muted-foreground" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
               </div>
-              <Button variant="hero" size="lg" className="w-full">
-                Start Playing
-              </Button>
             </CardContent>
           </Card>
         </div>

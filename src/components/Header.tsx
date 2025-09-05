@@ -36,6 +36,7 @@ export const Header = () => {
           <a href="/resources" className="text-muted-foreground hover:text-primary transition-colors">Resources</a>
           <a href="/peer-support" className="text-muted-foreground hover:text-primary transition-colors">Peer Support</a>
           <a href="/games" className="text-muted-foreground hover:text-primary transition-colors">Mind Games</a>
+          <a href="/rewards" className="text-muted-foreground hover:text-primary transition-colors">Rewards</a>
           <a href="/booking" className="text-muted-foreground hover:text-primary transition-colors">Book Counselor</a>
         </nav>
         

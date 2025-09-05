@@ -168,7 +168,8 @@ export const FeatureCards = () => {
                         'booking': '/booking',
                         'resources': '/resources',
                         'peer-support': '/peer-support',
-                        'games': '/games'
+                        'games': '/games',
+                        'rewards': '/rewards'
                       };
                       const route = routes[feature.id as keyof typeof routes];
                       if (route) {

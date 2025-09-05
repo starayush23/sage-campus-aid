@@ -4,6 +4,7 @@ import { FeatureCards } from "@/components/FeatureCards";
 import { QuickActions } from "@/components/QuickActions";
 import { Footer } from "@/components/Footer";
 import { SOSButton } from "@/components/SOSButton";
+import { PointsDisplay } from "@/components/PointsDisplay";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       </main>
       <Footer />
       <SOSButton />
+      <PointsDisplay />
     </div>
   );
 };
