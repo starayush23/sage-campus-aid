@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { MessageSquare, Send, Bot, User, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 interface Message {
   id: string;
@@ -23,9 +25,11 @@ export const AIChat = () => {
     }
   ]);
   const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
-  const handleSend = () => {
-    if (!input.trim()) return;
+  const handleSend = async () => {
+    if (!input.trim() || isLoading) return;
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -36,17 +40,48 @@ export const AIChat = () => {
 
     setMessages(prev => [...prev, userMessage]);
     setInput("");
+    setIsLoading(true);
 
-    // Simulate AI response
-    setTimeout(() => {
+    try {
+      // Get the last 10 messages for context
+      const recentMessages = [...messages, userMessage].slice(-10).map(msg => ({
+        role: msg.sender === 'user' ? 'user' : 'assistant',
+        content: msg.text
+      }));
+
+      const { data, error } = await supabase.functions.invoke('ai-chat', {
+        body: { messages: recentMessages }
+      });
+
+      if (error) throw error;
+
       const aiResponse: Message = {
         id: (Date.now() + 1).toString(),
-        text: "I understand you're going through something difficult. It's really brave of you to reach out. Can you tell me more about what's been on your mind lately?",
+        text: data.message || "I'm here to help. Could you share more about what's on your mind?",
         sender: 'ai',
         timestamp: new Date()
       };
+      
       setMessages(prev => [...prev, aiResponse]);
-    }, 1000);
+    } catch (error) {
+      console.error('AI chat error:', error);
+      toast({
+        title: "Connection Error",
+        description: "Unable to connect to AI. Please try again.",
+        variant: "destructive"
+      });
+      
+      // Fallback response
+      const fallbackResponse: Message = {
+        id: (Date.now() + 1).toString(),
+        text: "I'm having trouble connecting right now, but I'm here to listen. Can you tell me more about how you're feeling?",
+        sender: 'ai',
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, fallbackResponse]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -116,8 +151,12 @@ export const AIChat = () => {
                   onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                   className="flex-1"
                 />
-                <Button onClick={handleSend} variant="hero">
-                  <Send className="h-4 w-4" />
+                <Button onClick={handleSend} variant="hero" disabled={isLoading}>
+                  {isLoading ? (
+                    <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full" />
+                  ) : (
+                    <Send className="h-4 w-4" />
+                  )}
                 </Button>
               </div>
             </div>
