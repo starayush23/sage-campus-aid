@@ -60,13 +60,13 @@ export const QuickActions = () => {
               <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Calendar className="h-6 w-6" />
               </div>
-              <h3 className="font-semibold mb-2">Academic Calendar</h3>
+              <h3 className="font-semibold mb-2">Book Counselor</h3>
               <p className="text-white/80 text-sm mb-4">
-                Emotion-aware academic planning
+                Schedule appointments with professionals
               </p>
-              <a href="/academic-calendar">
+              <a href="/booking">
                 <Button variant="secondary" size="sm" className="w-full">
-                  View Calendar <ArrowRight className="h-4 w-4 ml-2" />
+                  Book Now <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
               </a>
             </CardContent>
