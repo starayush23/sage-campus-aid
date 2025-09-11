@@ -91,14 +91,6 @@ const features = [
     gradient: "gradient-support"
   },
   {
-    id: "anonymous",
-    title: "Anonymous Support",
-    description: "Complete anonymity ensured in all peer-to-peer interactions",
-    icon: UserCheck,
-    color: "therapy",
-    gradient: "gradient-hero"
-  },
-  {
     id: "admin",
     title: "Admin Dashboard",
     description: "Anonymous analytics helping authorities recognize trends and plan interventions",
